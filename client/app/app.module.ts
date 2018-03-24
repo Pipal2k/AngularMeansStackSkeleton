@@ -25,9 +25,15 @@ import { AppComponent } from './app.component';
 import { MainModule } from './main/main.module';
 import { DirectivesModule } from '../components/directives.module';
 import { AccountModule } from './account/account.module';
-import { AdminModule } from './admin/admin.module';
 
 import constants from './app.constants';
+import { AuthGuard } from '../components/auth/auth-guard.service';
+import { AdminModule } from './admin/admin.module';
+//import { AdminComponent } from './admin/admin.component';
+
+import { ManagebotModule } from './managebot/managebot.module';
+import { AppRoutesModule } from './app.routes';
+//import { ManagebotComponent } from './managebot/managebot.component';
 
 export function getAuthHttp(http) {
     return new AuthHttp(new AuthConfig({
@@ -55,22 +61,24 @@ if(constants.env === 'development') {
     providers.push({ provide: RequestOptions, useClass: HttpOptions });
 }
 
-const appRoutes: Routes = [{ path: '',
-    redirectTo: '/home',
-    pathMatch: 'full'
-}];
+/*const appRoutes: Routes = [
+    { path: '', redirectTo: '/(main:home)', pathMatch: 'full'},
+    { path: 'admin', component: AdminComponent, canActivate: [AuthGuard], outlet:'main'}, 
+];*/
 
 @NgModule({
     providers,
     imports: [
         BrowserModule,
         HttpModule,
-
-        RouterModule.forRoot(appRoutes, { enableTracing: process.env.NODE_ENV === 'development' }),
+        AppRoutesModule,
+       // RouterModule.forRoot(appRoutes, { enableTracing: process.env.NODE_ENV === 'development' }),
         MainModule,
         DirectivesModule,
         AccountModule,
         AdminModule,
+        ManagebotModule
+
     ],
     declarations: [
         AppComponent,

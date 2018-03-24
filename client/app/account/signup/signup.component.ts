@@ -43,7 +43,7 @@ export class SignupComponent {
         })
             .then(() => {
                 // Account created, redirect to home
-                this.Router.navigateByUrl('/home');                            })
+                this.Router.navigateByUrl('/(main:home)');                            })
             .catch(err => {
                 this.errors = err.errors;
 

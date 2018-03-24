@@ -1,0 +1,23 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-2 page-header" >
+       <subnavbar [listOfMenuItems]="menuItems"></subnavbar>
+    </div>
+    <div class="col-lg-10">
+      <router-outlet name='intern'></router-outlet>
+    </div>
+    <!--div class="col-lg-10">
+      <h1 class="page-header">Create new Bot instance: </h1>
+      <ul class="nav nav-tabs nav-stacked col-md-10 col-lg-10 col-sm-6" *ngFor="let botInstnance of listBotInstances">
+        <li><a>
+          {{botInstnance.name}}
+          <button type="button" class="close" (click)="deleteThing(thing)">&times;</button>
+          <button type="button" class="close" (click)="deleteThing(thing)">&times;</button>
+          <button type="button" class="close" (click)="deleteThing(thing)">&times;</button>
+        </a></li>
+      </ul>
+      
+    </div>-->
+  </div>
+</div>

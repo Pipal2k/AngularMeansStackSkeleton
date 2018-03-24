@@ -1,0 +1,7 @@
+<nav class="navbar bg-light">
+  <ul class="nav nav-pills nav-stacked">
+    <li class="nav-item" *ngFor="let navBarItem of listOfMenuItems">
+      <a class="nav-link" [routerLink]="[{ outlets: { intern:'overview'}} ]">{{navBarItem.title}}</a>
+    </li>
+  </ul>
+</nav>

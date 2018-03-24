@@ -10,9 +10,10 @@ import { AuthService } from '../auth/auth.service';
 })
 export class NavbarComponent {
     isCollapsed = true;
-    menu = [{
-        title: 'Bots',
-        'link': '/home',
+    menu = [
+    {
+       title: 'Manage Bots',
+       'link': '/managebots',
     }];
     Router;
     isAdmin;
@@ -48,7 +49,7 @@ export class NavbarComponent {
 
     logout() {
         return this.AuthService.logout().then(() => {
-            this.Router.navigateByUrl('/home');
+            this.Router.navigateByUrl('/(main:home)');
             this.reset();
         });
     }}

@@ -3,25 +3,26 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 
-import { RouterModule, Routes } from '@angular/router';
+//import { RouterModule, Routes } from '@angular/router';
 
 import { TooltipModule } from 'ngx-bootstrap';
 
 import { MainComponent } from './main.component';
 import { SocketService } from '../../components/socket/socket.service';
 
-export const ROUTES: Routes = [
-    { path: 'home', component: MainComponent },
-];
+/*export const ROUTES: Routes = [
+    { path: 'home', 
+     component: MainComponent, 
+     outlet: 'main',
+   },
+];*/
 
 
 @NgModule({
     imports: [
         BrowserModule,
         FormsModule,
-        RouterModule.forChild(ROUTES),
-
-
+        //RouterModule.forChild(ROUTES),
         TooltipModule.forRoot(),
     ],
     declarations: [

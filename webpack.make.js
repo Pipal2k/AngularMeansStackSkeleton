@@ -155,11 +155,14 @@ module.exports = function makeWebpackConfig(options) {
                 options: {
                     tsconfig: path.resolve(__dirname, 'tsconfig.json')
                 },
-            }].concat(DEV ? '@angularclass/hmr-loader' : []),
+            }, {
+                loader: 'angular-router-loader'
+              }].concat(DEV ? '@angularclass/hmr-loader' : []),
             include: [
                 path.resolve(__dirname, 'client/')
             ]
-        }, {
+        }, 
+        {
             // ASSET LOADER
             // Reference: https://github.com/webpack/file-loader
             // Copy png, jpg, jpeg, gif, svg, woff, woff2, ttf, eot files to output
