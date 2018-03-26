@@ -1,9 +1,7 @@
 import { Injectable, EventEmitter, Output } from '@angular/core';
-//import { AuthHttp } from 'angular2-jwt';
-import { JwtModule } from '@auth0/angular-jwt'
+import { AuthHttp } from 'angular2-jwt';
 import { UserService } from './user.service';
 import { Http } from '@angular/http';
-import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/toPromise';
 import { safeCb, extractData } from '../util';
 import constants from '../../app/app.constants';
@@ -26,12 +24,8 @@ export class AuthService {
     AuthHttp;
     UserService;
 
-    //static parameters = [Http, AuthHttp, UserService];
-    static parameters = [Http,HttpClient, UserService];
-
-
-    constructor(private http: Http, private authHttp: HttpClient, private userService: UserService) {
-     //constructor(private http: HttpClient,  private userService: UserService) {    
+    static parameters = [Http, AuthHttp, UserService];
+    constructor(private http: Http, private authHttp: AuthHttp, private userService: UserService) {
         this.Http = http;
         this.AuthHttp = authHttp;
         this.UserService = userService;

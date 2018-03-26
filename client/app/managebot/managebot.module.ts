@@ -25,7 +25,7 @@ import constants from '../app.constants';
 import { ManagebotRoutesModule } from './managebot.routes';
 import { OverviewComponent } from './overview/overview.component';
 import { InstancesComponent } from './instances/instances.component';
-
+import {PanelCreateBotComponent} from '../../components/createbotpanel/panel-create-bot.component'
 
 /*const managebotRoutes: Routes = [{
     path: 'managebot',
@@ -43,6 +43,7 @@ import { InstancesComponent } from './instances/instances.component';
        RouterModule,
        DirectivesModule,
        ManagebotRoutesModule,
+      
      
         //OverviewModule
     ],

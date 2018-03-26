@@ -19,9 +19,9 @@ import {
 } from '@angularclass/hmr';
 
 import { RouterModule, Routes } from '@angular/router';
-//import { AuthHttp, AuthConfig } from 'angular2-jwt';
+import { AuthHttp, AuthConfig } from 'angular2-jwt';
 //import { AuthHttp, AuthConfig } from '@auth0/angular-jwt';
-import { JwtModule } from '@auth0/angular-jwt'
+//import { JwtModule } from '@auth0/angular-jwt'
 
 import { AppComponent } from './app.component';
 import { MainModule } from './main/main.module';
@@ -37,27 +37,28 @@ import { ManagebotModule } from './managebot/managebot.module';
 import { AppRoutesModule } from './app.routes';
 
 import {CustomMaterialModule} from '../components/createbotpanel/material.modules';
-import {HttpClientModule , HttpClient } from '@angular/common/http';
+//import {HttpClientModule , HttpClient } from '@angular/common/http';
 //import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-//import { PanelCreateBotComponent } from '../components/createbotpanel/panel-create-bot.component';
-//import { DialogOverviewExampleDialog } from '../components/createbotpanel/dialog-overview-example-dialog';
+import { PanelCreateBotComponent } from '../components/createbotpanel/panel-create-bot.component';
+import { DialogOverviewExampleDialog } from '../components/createbotpanel/dialog-overview-example-dialog.component';
+import { FormsModule } from '@angular/forms';
 
 
-/*export function getAuthHttp(http) {
+export function getAuthHttp(http) {
     return new AuthHttp(new AuthConfig({
         noJwtError: true,
         globalHeaders: [{'Accept': 'application/json'}],
         tokenGetter: (() => localStorage.getItem('id_token')),
     }), http);
-}*/
+}
 
-/*let providers: Provider[] = [DialogOverviewExampleDialog, {
+let providers: Provider[] = [DialogOverviewExampleDialog, {
     provide: AuthHttp,
     useFactory: getAuthHttp,
     deps: [Http]
-}];*/
+}];
 //let providers: Provider[] = [DialogOverviewExampleDialog];
-let providers: Provider[];
+//let providers: Provider[];
 
 if(constants.env === 'development') {
     @Injectable()
@@ -81,30 +82,21 @@ if(constants.env === 'development') {
     //providers: [],
     declarations: [
         AppComponent,
-        //PanelCreateBotComponent,
-        //DialogOverviewExampleDialog
+        PanelCreateBotComponent,
+        DialogOverviewExampleDialog
     ],
     imports: [
         BrowserModule,
         HttpModule,
-        HttpClientModule,
+        //HttpClientModule,
         AppRoutesModule,
-        JwtModule.forRoot({
-            config: {
-              tokenGetter: () => {
-                return localStorage.getItem('id_token');
-              },
-              whitelistedDomains: ['you API url']
-            }
-          }),
-       // RouterModule.forRoot(appRoutes, { enableTracing: process.env.NODE_ENV === 'development' }),
         MainModule,
         DirectivesModule,
         AccountModule,
         AdminModule,
         ManagebotModule,
-     
-       // CustomMaterialModule
+        CustomMaterialModule,
+        FormsModule
       
 
     ],

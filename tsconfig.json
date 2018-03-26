@@ -8,6 +8,7 @@
     "rootDir": "./",
     "module": "es6",
     "outDir": ".tmp",
+    "emitDecoratorMetadata": true,
     "paths": {
       "primus": ["client/components/socket/primus.js"]
     },
