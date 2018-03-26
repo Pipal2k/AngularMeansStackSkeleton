@@ -12,7 +12,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { OauthButtonsComponent } from './oauth-buttons/oauth-buttons.component';
 import { SubNavbarComponent } from './subnavbar/subnavbar.component';
+//import { PanelCreateBotComponent } from './createbotpanel/panelCreateBot.component';
+//import {DialogOverviewExample, DialogOverviewExampleDialog} from './app/dialog-overview-example'
 //import {OverviewComponent } from '../app/managebot/overview/overview.component';
+
+
+
+
 
 
 @NgModule({
@@ -21,12 +27,15 @@ import { SubNavbarComponent } from './subnavbar/subnavbar.component';
         CollapseModule,
         AuthModule,
         RouterModule,
+        //MatDialogModule
     ],
     declarations: [
         NavbarComponent,
         SubNavbarComponent,
         FooterComponent,
         OauthButtonsComponent,
+       // PanelCreateBotComponent,
+        //DialogOverviewExampleDialog
        // OverviewComponent
     ],
     exports: [
@@ -34,6 +43,8 @@ import { SubNavbarComponent } from './subnavbar/subnavbar.component';
         SubNavbarComponent,
         FooterComponent,
         OauthButtonsComponent,
+        //PanelCreateBotComponent,
+        //DialogOverviewExampleDialog
         //OverviewComponent
     ]
 })

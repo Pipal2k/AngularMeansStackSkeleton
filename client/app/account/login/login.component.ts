@@ -46,6 +46,7 @@ export class LoginComponent {
 
             })
             .catch(err => {
+                (err: any) => console.log(err);
                 this.errors.login = err.json().message;
             });
     }

@@ -17,7 +17,9 @@ export class ManagebotComponent implements OnInit, OnDestroy {
     Http;
     SocketService;
     //menuItems = [{title:"test",link:"/(intern:/managebot/overview)"}];
-    menuItems = [{title:"test",link:"/(main:admin)"}];
+    menuItems = [{title:"Overview",link:"overview"},
+                {title:"Instances",link:"instances"}];
+
     
     listBotInstances = [{name: 'Awsome BOT'}, {name: 'Irgendein Bot'}];
 
@@ -29,10 +31,7 @@ export class ManagebotComponent implements OnInit, OnDestroy {
         this.SocketService = socketService;
     }
 
-    ngOnInit() {
-
-
-    }
+    ngOnInit() {}
 
 
     ngOnDestroy() {}

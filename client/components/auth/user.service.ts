@@ -1,8 +1,10 @@
 // @flow
 import { Injectable } from '@angular/core';
 import { Response } from '@angular/http';
-import { AuthHttp } from 'angular2-jwt';
+//import { AuthHttp } from 'angular2-jwt';
 import { Observable } from 'rxjs/Rx';
+import { HttpClient } from '@angular/common/http';
+
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/toPromise';
@@ -21,10 +23,11 @@ function handleError(err) {
 
 @Injectable()
 export class UserService {
+    //AuthHttp;
     AuthHttp;
 
-    static parameters = [AuthHttp];
-    constructor(private authHttp: AuthHttp) {
+    static parameters = [HttpClient];
+    constructor(private authHttp: HttpClient) {
         this.AuthHttp = authHttp;
     }
 

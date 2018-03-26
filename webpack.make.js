@@ -231,6 +231,8 @@ module.exports = function makeWebpackConfig(options) {
             },
 
         }),
+
+        new webpack.ContextReplacementPlugin(new RegExp(/\@angular(\\|\/)core(\\|\/)(\@angular|esm5)/), path.resolve(__dirname, './client/app') )
     ];
 
     if(!TEST) {

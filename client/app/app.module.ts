@@ -19,7 +19,9 @@ import {
 } from '@angularclass/hmr';
 
 import { RouterModule, Routes } from '@angular/router';
-import { AuthHttp, AuthConfig } from 'angular2-jwt';
+//import { AuthHttp, AuthConfig } from 'angular2-jwt';
+//import { AuthHttp, AuthConfig } from '@auth0/angular-jwt';
+import { JwtModule } from '@auth0/angular-jwt'
 
 import { AppComponent } from './app.component';
 import { MainModule } from './main/main.module';
@@ -33,21 +35,29 @@ import { AdminModule } from './admin/admin.module';
 
 import { ManagebotModule } from './managebot/managebot.module';
 import { AppRoutesModule } from './app.routes';
-//import { ManagebotComponent } from './managebot/managebot.component';
 
-export function getAuthHttp(http) {
+import {CustomMaterialModule} from '../components/createbotpanel/material.modules';
+import {HttpClientModule , HttpClient } from '@angular/common/http';
+//import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+//import { PanelCreateBotComponent } from '../components/createbotpanel/panel-create-bot.component';
+//import { DialogOverviewExampleDialog } from '../components/createbotpanel/dialog-overview-example-dialog';
+
+
+/*export function getAuthHttp(http) {
     return new AuthHttp(new AuthConfig({
         noJwtError: true,
         globalHeaders: [{'Accept': 'application/json'}],
         tokenGetter: (() => localStorage.getItem('id_token')),
     }), http);
-}
+}*/
 
-let providers: Provider[] = [{
+/*let providers: Provider[] = [DialogOverviewExampleDialog, {
     provide: AuthHttp,
     useFactory: getAuthHttp,
     deps: [Http]
-}];
+}];*/
+//let providers: Provider[] = [DialogOverviewExampleDialog];
+let providers: Provider[];
 
 if(constants.env === 'development') {
     @Injectable()
@@ -58,7 +68,7 @@ if(constants.env === 'development') {
         }
     }
 
-    providers.push({ provide: RequestOptions, useClass: HttpOptions });
+ providers.push({ provide: RequestOptions, useClass: HttpOptions });
 }
 
 /*const appRoutes: Routes = [
@@ -68,22 +78,41 @@ if(constants.env === 'development') {
 
 @NgModule({
     providers,
+    //providers: [],
+    declarations: [
+        AppComponent,
+        //PanelCreateBotComponent,
+        //DialogOverviewExampleDialog
+    ],
     imports: [
         BrowserModule,
         HttpModule,
+        HttpClientModule,
         AppRoutesModule,
+        JwtModule.forRoot({
+            config: {
+              tokenGetter: () => {
+                return localStorage.getItem('id_token');
+              },
+              whitelistedDomains: ['you API url']
+            }
+          }),
        // RouterModule.forRoot(appRoutes, { enableTracing: process.env.NODE_ENV === 'development' }),
         MainModule,
         DirectivesModule,
         AccountModule,
         AdminModule,
-        ManagebotModule
+        ManagebotModule,
+     
+       // CustomMaterialModule
+      
 
     ],
-    declarations: [
-        AppComponent,
-    ],
+
+    //entryComponents: [DialogOverviewExampleDialog],
     bootstrap: [AppComponent]
+    //bootstrap: [PanelCreateBotComponent],
+
 })
 export class AppModule {
     static parameters = [ApplicationRef];

@@ -10,10 +10,12 @@ import { AuthGuard } from '../../components/auth/auth-guard.service';
 //import {AccountModule } from  './account/account.module';
 //import * as accountComponents from './account';
 import { OverviewComponent } from './overview/overview.component';
+import { InstancesComponent } from './instances/instances.component';
 
 
 const manageBotRoutes: Route[] = [
-    {path:'overview',component: OverviewComponent, outlet:'intern'}
+    {path:'overview',component: OverviewComponent, outlet:'intern'},
+    {path:'instances',component: InstancesComponent, outlet:'intern'}
 ];
 
 /*const appRoutes: Routes = [

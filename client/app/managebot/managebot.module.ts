@@ -19,11 +19,12 @@ import { ManagebotComponent } from './managebot.component';
 import { DirectivesModule } from '../../components/directives.module';
 //import {} from '@angular/material';
 
-import { AuthHttp, AuthConfig } from 'angular2-jwt';
+//import { AuthHttp, AuthConfig } from 'angular2-jwt';
 import constants from '../app.constants';
 //import { OverviewModule } from './Overview/overview.module';
 import { ManagebotRoutesModule } from './managebot.routes';
 import { OverviewComponent } from './overview/overview.component';
+import { InstancesComponent } from './instances/instances.component';
 
 
 /*const managebotRoutes: Routes = [{
@@ -41,12 +42,14 @@ import { OverviewComponent } from './overview/overview.component';
         //BrowserModule,
        RouterModule,
        DirectivesModule,
-        ManagebotRoutesModule
+       ManagebotRoutesModule,
+     
         //OverviewModule
     ],
     declarations: [
         ManagebotComponent,
-        OverviewComponent
+        OverviewComponent,
+        InstancesComponent
     ],
     /*exports: [
         ManagebotComponent,
