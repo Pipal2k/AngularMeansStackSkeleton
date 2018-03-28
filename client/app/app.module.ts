@@ -36,11 +36,11 @@ import { AdminModule } from './admin/admin.module';
 import { ManagebotModule } from './managebot/managebot.module';
 import { AppRoutesModule } from './app.routes';
 
-import {CustomMaterialModule} from '../components/createbotpanel/material.modules';
+//import {CustomMaterialModule} from '../components/createbotpanel/material.modules';
 //import {HttpClientModule , HttpClient } from '@angular/common/http';
-//import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { PanelCreateBotComponent } from '../components/createbotpanel/panel-create-bot.component';
-import { DialogOverviewExampleDialog } from '../components/createbotpanel/dialog-overview-example-dialog.component';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+//import { PanelCreateBotComponent } from '../components/createbotpanel/panel-create-bot.component';
+//import { DialogOverviewExampleDialog } from '../components/createbotpanel/dialog-overview-example-dialog.component';
 import { FormsModule } from '@angular/forms';
 
 
@@ -52,7 +52,7 @@ export function getAuthHttp(http) {
     }), http);
 }
 
-let providers: Provider[] = [DialogOverviewExampleDialog, {
+let providers: Provider[] = [ {
     provide: AuthHttp,
     useFactory: getAuthHttp,
     deps: [Http]
@@ -82,8 +82,8 @@ if(constants.env === 'development') {
     //providers: [],
     declarations: [
         AppComponent,
-        PanelCreateBotComponent,
-        DialogOverviewExampleDialog
+        //PanelCreateBotComponent,
+        //DialogOverviewExampleDialog
     ],
     imports: [
         BrowserModule,
@@ -95,10 +95,11 @@ if(constants.env === 'development') {
         AccountModule,
         AdminModule,
         ManagebotModule,
-        CustomMaterialModule,
-        FormsModule
-      
-
+        //CustomMaterialModule,
+        FormsModule,
+        BrowserAnimationsModule
+        //PanelCreateBotComponent
+    
     ],
 
     //entryComponents: [DialogOverviewExampleDialog],

@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 //import { AuthService } from '../auth/auth.service';
 import {MatDialog} from '@angular/material';
 import {DialogOverviewExampleDialog} from "./dialog-overview-example-dialog.component";
+import {Overlay} from '@angular/cdk/overlay';
+
 
 
 @Component({
@@ -16,15 +18,18 @@ export class PanelCreateBotComponent {
     animal: string;
     name: string;
 
+    //overlay: Overlay;
     
   
     
-    constructor(public dialog: MatDialog) {}
+    constructor(public dialog: MatDialog,public overlay: Overlay) {}
 
   openDialog(): void {
     //this.showError("Invalid credentials");
     let dialogRef = this.dialog.open(DialogOverviewExampleDialog, {
-      width: '250px',
+      width: '800px',
+      //height: '2000px',
+      //scrollStrategy: thisc,
       data: { name: this.name, animal: this.animal }
     });
 

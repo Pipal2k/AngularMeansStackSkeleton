@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+//import { BrowserModule } from '@angular/platform-browser';
+import {CommonModule} from '@angular/common';
 //import { RouterModule, Routes } from '@angular/router';
 //import { AuthGuard } from '../../components/auth/auth-guard.service';
 //import { AuthModule } from '../../components/auth/auth.module';
@@ -15,8 +16,9 @@ import { AdminComponent } from './admin.component';
 
 @NgModule({
     imports: [
+        CommonModule
         //AuthModule,
-        BrowserModule,
+        //BrowserModule,
        // RouterModule.forChild(adminRoutes),
 
     ],

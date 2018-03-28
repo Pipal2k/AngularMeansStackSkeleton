@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+//import { BrowserModule } from '@angular/platform-browser';
+import {CommonModule} from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 
@@ -20,7 +21,8 @@ import { SocketService } from '../../components/socket/socket.service';
 
 @NgModule({
     imports: [
-        BrowserModule,
+        //BrowserModule,
+        CommonModule,
         FormsModule,
         //RouterModule.forChild(ROUTES),
         TooltipModule.forRoot(),

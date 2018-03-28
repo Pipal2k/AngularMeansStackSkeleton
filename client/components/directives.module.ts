@@ -12,7 +12,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { OauthButtonsComponent } from './oauth-buttons/oauth-buttons.component';
 import { SubNavbarComponent } from './subnavbar/subnavbar.component';
-//import { PanelCreateBotComponent } from './createbotpanel/panelCreateBot.component';
+
+import { PanelCreateBotComponent } from './createbotpanel/panel-create-bot.component';
+
+import { FormsModule } from '@angular/forms';
+import { CustomMaterialModule} from  './createbotpanel/material.modules';
+import {DialogOverviewExampleDialog} from './createbotpanel/dialog-overview-example-dialog.component';
+//import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 //import {DialogOverviewExample, DialogOverviewExampleDialog} from './app/dialog-overview-example'
 //import {OverviewComponent } from '../app/managebot/overview/overview.component';
 
@@ -27,6 +33,10 @@ import { SubNavbarComponent } from './subnavbar/subnavbar.component';
         CollapseModule,
         AuthModule,
         RouterModule,
+        CustomMaterialModule,
+        FormsModule,
+       // DialogOverviewExampleDialog
+        //BrowserAnimationsModule
         //MatDialogModule
     ],
     declarations: [
@@ -34,7 +44,8 @@ import { SubNavbarComponent } from './subnavbar/subnavbar.component';
         SubNavbarComponent,
         FooterComponent,
         OauthButtonsComponent,
-       // PanelCreateBotComponent,
+        PanelCreateBotComponent,
+        DialogOverviewExampleDialog
         //DialogOverviewExampleDialog
        // OverviewComponent
     ],
@@ -43,9 +54,12 @@ import { SubNavbarComponent } from './subnavbar/subnavbar.component';
         SubNavbarComponent,
         FooterComponent,
         OauthButtonsComponent,
-        //PanelCreateBotComponent,
+        PanelCreateBotComponent,
+        DialogOverviewExampleDialog
         //DialogOverviewExampleDialog
         //OverviewComponent
-    ]
+    ],
+    entryComponents:[DialogOverviewExampleDialog]
+
 })
 export class DirectivesModule {}
